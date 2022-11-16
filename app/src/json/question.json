@@ -1,0 +1,39 @@
+
+  {
+    "id": 1,
+    "question": "Questions ?",
+    "type": "event / core",
+    "order": 0,
+    "answers": [
+      {
+        "id": 1,
+        "text": "blabla",
+        "price": 0,
+        "gauges": {
+          "social": -2,
+          "environmental": 2,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "bloblo",
+        "price": -100,
+        "gauges": {
+          "social": -2,
+          "environmental": -2,
+          "economy": 2
+        }
+      },
+      {
+        "id": 3,
+        "text": "blibli",
+        "price": 200,
+        "gauges": {
+          "social": -1,
+          "environmental": 0,
+          "economy": 1
+        }
+      }
+    ]
+  }
