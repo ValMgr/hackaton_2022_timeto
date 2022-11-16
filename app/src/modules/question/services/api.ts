@@ -1,4 +1,6 @@
-function getQuestion(url: string): Promise<[]> {
+import { Question } from "@/types/question";
+
+function getQuestion(url: string): Promise<Question> {
   return fetch(url)
   .then((response) => response.json())
   .catch((err) => console.error(err))

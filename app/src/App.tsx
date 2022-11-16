@@ -2,14 +2,13 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-import Question, {  } from "./modules/question/components/Question";
+import QuestionContainer from "./modules/question/components/QuestionContainer";
 
 function App() {
 
   return (
     <div className="App">
-      <Question />
-      
+      <QuestionContainer />
     </div>
   )
 }

@@ -1,10 +1,16 @@
+import {ContainerButton} from "./styledComponents";
 
 
-function Button(props) {
+interface IProps {
+  label: string;
+  callback: () => void;
+  selected: boolean;
+}
 
+function Button({ label, callback, selected }: IProps) {
 
   return(
-    <button>{props.answer}</button>
+    <ContainerButton selected={selected} onClick={callback}>{label}</ContainerButton>
   )
 
 }
