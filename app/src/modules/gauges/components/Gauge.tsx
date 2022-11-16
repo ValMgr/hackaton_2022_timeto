@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 
-import { ContainerLevel, Level, GaugeLabel, MainContainer } from './styledComponents.js';
+import { ContainerLevel, Level, GaugeLabel, MainContainer } from './styledComponents';
 
 interface IProps {
 	label: string;
 	value: number;
 	limit: number;
+	gaugeColor: string
 }
 
 function Gauge({ label, value, limit, gaugeColor }: IProps) {

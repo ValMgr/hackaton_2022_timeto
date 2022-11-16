@@ -1,0 +1,39 @@
+{
+  "id": 1,
+  "title": "Tri",
+  "question": "Comment gérez-vous les déchets de votre entreprise ?",
+  "type": "Core",
+  "order": 0,
+  "answers": [
+    {
+      "id": 1,
+      "text": "Simple poubelle",
+      "price": 0,
+      "gauges": {
+        "social": -2,
+        "environmental": 2,
+        "economy": 0
+      }
+    },
+    {
+      "id": 2,
+      "text": "Bac de tri selon les déchets",
+      "price": -100,
+      "gauges": {
+        "social": -2,
+        "environmental": -2,
+        "economy": 2
+      }
+    },
+    {
+      "id": 3,
+      "text": "Partenariat avec une société de tri des déchets",
+      "price": 200,
+      "gauges": {
+        "social": -1,
+        "environmental": 0,
+        "economy": 1
+      }
+    }
+  ]
+}
