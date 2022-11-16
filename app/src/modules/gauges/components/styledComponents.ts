@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+interface ILevelProps {
+  top: number;
+	gaugeColor: string;
+}
+
 export const ContainerLevel = styled.div`
 	width: 26px;
 	height: 100%;
@@ -8,9 +13,10 @@ export const ContainerLevel = styled.div`
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
+	height: 100%
 `
 
-export const Level = styled.div`
+export const Level = styled.div<ILevelProps>`
 	position: absolute;
 	bottom: 0;
 	width: 26px;

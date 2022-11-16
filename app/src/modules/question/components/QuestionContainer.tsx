@@ -4,17 +4,17 @@ import { useEffect, useMemo, useState } from 'react'
 import {QuestionTitle, QuestionText, ContainerButtons,ContainerQuestion} from "@/modules/question/components/styledComponents";
 import type { Question } from "@/types/question";
 
+import { useGameContext } from "@/core/providers/GameProvider";
+
 import getQuestion from "../services/api";
 
 function QuestionContainer() {
-  
-  let [question, setQuestion] = useState<Question | null>(null);
-  let [selected, setSelected] = useState<number>(-1);
-  
-  let [timer, setTimer] = useState<number>(60);
 
-
+  const {updateScore} = useGameContext();
   
+  const [question, setQuestion] = useState<Question | null>(null);
+  const [selected, setSelected] = useState<number>(-1);
+
 
   useEffect(() => {
     if(!question){
@@ -23,6 +23,8 @@ function QuestionContainer() {
     })();
   }
   }, [question]);
+
+
 
 
   const renderQuestionText: JSX.Element | null = useMemo(() => {
@@ -38,59 +40,37 @@ function QuestionContainer() {
     )
   }, [question]);
 
-
   const renderAnswers: JSX.Element[] | null = useMemo(() => {
     if(!question) {
       return null;
     }
 
-    const handleClick = (index: number) => {
+    const handleClick = (index: number, answer:Object) => {
       setSelected(index);
+      updateScore(answer);
+
       // @TODO: Send vote to server
     };
 
-    console.log('time', timer)
-    if (timer < 50) {
-      console.log('50');
-    }
+    // console.log('time', timer)
+    // if (timer < 50) {
+    //   console.log('50');
+    // }
 
     return question.answers.map((answer, index) => (
     <Button 
       key={`answer_${answer.id}`} 
       label={answer.text} 
-      callback={() => handleClick(index)}
+      callback={() => handleClick(index, answer.gauges)}
       selected={selected === index} />
     ));
   }, [question, selected]);
-
-  
-  const handleInterval = () => {
-
-    function timerFunction() {
-      if (timer > 0) {
-        setTimer(timer -= 1);
-      } else {
-        setTimer(0);
-        clearInterval(interval);
-        console.log('addattributes');
-      }
-    }
-
-    const interval = setInterval(timerFunction, 1000);
-
-    
-    // @TODO: Send vote to server
-  };
-
 
 
 
   return(
     <ContainerQuestion>
-      <Timer 
-        timer={timer} 
-        callback={() => handleInterval()}
-      />
+      <Timer  />
       {renderQuestionText}
       <ContainerButtons>
         {renderAnswers}
