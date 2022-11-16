@@ -24,7 +24,7 @@ function Question() {
       return null;
     }
 
-    return question.answers.map(answer => <Button key={`answer_${answer.id}`} />)
+    return question.answers.map(answer => <Button key={`answer_${answer.id}`} answer={answer.text} />)
   }, [question]);
 
 
@@ -33,7 +33,9 @@ function Question() {
 
   return(
     <>
-      <p>Answers: </p>
+      <h2>Question : </h2>
+      <p>P</p>
+      <h2>Réponses: </h2>
       {renderAnswers}
     </>
   )

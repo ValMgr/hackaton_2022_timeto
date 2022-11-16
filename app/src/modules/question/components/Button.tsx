@@ -1,10 +1,10 @@
 
 
-function Button(answers) {
+function Button(props) {
 
 
   return(
-    <button>Test</button>
+    <button>{props.answer}</button>
   )
 
 }

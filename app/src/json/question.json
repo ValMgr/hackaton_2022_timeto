@@ -1,13 +1,13 @@
 
   {
     "id": 1,
-    "question": "Questions ?",
+    "question": "Comment gérez-vous les déchets de votre entreprise ?",
     "type": "event / core",
     "order": 0,
     "answers": [
       {
         "id": 1,
-        "text": "blabla",
+        "text": "Simple poubelle",
         "price": 0,
         "gauges": {
           "social": -2,
@@ -17,7 +17,7 @@
       },
       {
         "id": 2,
-        "text": "bloblo",
+        "text": "Bac de tri selon les déchets",
         "price": -100,
         "gauges": {
           "social": -2,
@@ -27,7 +27,7 @@
       },
       {
         "id": 3,
-        "text": "blibli",
+        "text": "Partenariat avec une société de tri des déchets",
         "price": 200,
         "gauges": {
           "social": -1,
