@@ -1,8 +1,42 @@
 import express from 'express';
+import { Server as HttpServer } from 'http';
+import { Server } from 'socket.io';
 
 const app = express();
+const server = new HttpServer(app);
+const io = new Server(server);
 
-app.listen(3000, () => {
-  // eslint-disable-next-line
-  console.log(`Server listen on http://localhost:${3000}`);
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+  res.json({ name: 'Time To - Hackaton 2022', version: process.env.npm_package_version });
+  io.emit('message', 'Hello World');
+});
+
+const store = new Map();
+let connectedClient: number = 0;
+io.on('connection', (socket) => {
+  connectedClient += 1;
+  console.log(`Client connected: ${connectedClient}`);
+
+  socket.on('disconnect', () => {
+    connectedClient -= 1;
+    console.log(`Client connected: ${connectedClient}`);
+  });
+
+  socket.on('createRoom', (roomName) => {
+    console.log(`Room joined: ${roomName} by ${socket.id}`);
+    socket.join(roomName);
+    if (!store.has(roomName)) store.set(roomName, { count: 0 });
+
+    io.to(roomName).emit('currentCount', store.get(roomName).count);
+    socket.on('increaseCount', () => {
+      store.set(roomName, { count: store.get(roomName).count + 1 });
+      io.to(roomName).emit('currentCount', store.get(roomName).count);
+    });
+  });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
