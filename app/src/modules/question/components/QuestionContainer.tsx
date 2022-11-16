@@ -10,6 +10,9 @@ function QuestionContainer() {
   
   let [question, setQuestion] = useState<Question | null>(null);
   let [selected, setSelected] = useState<number>(-1);
+  
+  let [timer, setTimer] = useState<number>(60);
+
 
   
 
@@ -46,6 +49,11 @@ function QuestionContainer() {
       // @TODO: Send vote to server
     };
 
+    console.log('time', timer)
+    if (timer < 50) {
+      console.log('50');
+    }
+
     return question.answers.map((answer, index) => (
     <Button 
       key={`answer_${answer.id}`} 
@@ -55,13 +63,34 @@ function QuestionContainer() {
     ));
   }, [question, selected]);
 
+  
+  const handleInterval = () => {
+
+    function timerFunction() {
+      if (timer > 0) {
+        setTimer(timer -= 1);
+      } else {
+        setTimer(0);
+        clearInterval(interval);
+        console.log('addattributes');
+      }
+    }
+
+    const interval = setInterval(timerFunction, 1000);
+
+    
+    // @TODO: Send vote to server
+  };
 
 
 
 
   return(
     <ContainerQuestion>
-      <Timer />
+      <Timer 
+        timer={timer} 
+        callback={() => handleInterval()}
+      />
       {renderQuestionText}
       <ContainerButtons>
         {renderAnswers}
