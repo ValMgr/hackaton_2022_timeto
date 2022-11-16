@@ -24,12 +24,14 @@ io.on('connection', (socket) => {
     console.log(`Client connected: ${connectedClient}`);
   });
 
-  socket.on('createRoom', (roomName) => {
-    console.log(`Room joined: ${roomName} by ${socket.id}`);
+  socket.on('createRoom', (roomName, username) => {
+    console.log(`Room joined: ${roomName} by ${socket.id} with username "${username}"`);
     socket.join(roomName);
-    if (!store.has(roomName)) store.set(roomName, { count: 0 });
+    if (!store.has(roomName)) store.set(roomName, { count: 0, users: [] });
+    store.get(roomName).users.push({ username, id: socket.id });
 
     io.to(roomName).emit('currentCount', store.get(roomName).count);
+    io.to(roomName).emit('playerList', store.get(roomName).users);
     socket.on('increaseCount', () => {
       store.set(roomName, { count: store.get(roomName).count + 1 });
       io.to(roomName).emit('currentCount', store.get(roomName).count);
