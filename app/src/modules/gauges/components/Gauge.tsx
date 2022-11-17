@@ -4,12 +4,13 @@ import { ContainerLevel, Level, GaugeLabel, MainContainer } from './styledCompon
 
 interface IProps {
 	label: string;
+	img: string;
 	value: number;
 	limit: number;
 	gaugeColor: string
 }
 
-function Gauge({ label, value, limit, gaugeColor }: IProps) {
+function Gauge({ label, img, value, limit, gaugeColor }: IProps) {
 	const percentage = useMemo(() => ((value + (limit)) * 100) / (limit * 2), [value]);
 
 	return (
@@ -17,7 +18,7 @@ function Gauge({ label, value, limit, gaugeColor }: IProps) {
 			<ContainerLevel>
 				<Level top={percentage} gaugeColor={gaugeColor} />
 			</ContainerLevel>
-			<GaugeLabel>{label}</GaugeLabel>
+			<GaugeLabel><img src={img}/>{label}</GaugeLabel>
 		</MainContainer>
 	);
 }

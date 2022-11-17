@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface ICircleProps {
+  backgroundColor: string;
+}
+
 export const MainContainer = styled.div`
 	background-color: #F3EFDC;
 	border-radius: 10px;
@@ -17,17 +21,17 @@ export const PeopleContainer = styled.div`
 	align-items: center;
   gap: 15px;
 `
-export const PeopleCircle = styled.div`
+export const PeopleCircle = styled.div<ICircleProps>`
 	display: flex;
 	align-items: center;
   justify-content: center;
-  background-color: #D34F16;
   border-radius: 50%;
   height: 50px;
   width: 50px;
   color: #F3EFDC;
   font-family: EuphemiaBold;
   font-size: 18px;
+  background-color: ${prop => prop.backgroundColor};
   `
   
 export const PeopleName = styled.div`
