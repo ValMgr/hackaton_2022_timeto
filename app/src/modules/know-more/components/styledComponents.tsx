@@ -3,7 +3,6 @@ import img from '../../../assets/svg-background.svg';
 
 export const ContainerAll = styled.div`
   background-color: #F3EFDC;
-  border : 1px solid #074D43;
   padding: 55px 55px;
   max-width: 100%;
   display: flex;
@@ -14,7 +13,7 @@ export const ContainerAll = styled.div`
   width: 90%
 `;
 
-export const Container =styled.div`
+export const Container = styled.div`
 	width: 60%;
 	margin: 0 15px;
 	height: auto;
