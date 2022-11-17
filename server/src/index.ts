@@ -75,6 +75,10 @@ io.on('connection', (socket) => {
         if (store.get(roomName).stage < questions.length) {
           io.to(roomName).emit('setQuestion', questions[store.get(roomName).stage]);
         }
+
+        if (store.get(roomName).stage === questions.length) {
+          io.to(roomName).emit('endGame', store.get(roomName).results);
+        }
       }
     });
 
