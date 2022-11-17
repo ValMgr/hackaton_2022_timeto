@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import Button from '@/modules/questions/components/Button';
 import Timer from '@/modules/questions/components/Timer';
