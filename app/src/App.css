@@ -24,3 +24,30 @@ body {
   gap: 25px;
   box-sizing: border-box;
 }
+
+button{
+	width: 220px;
+  background-color: transparent;
+	border: 1px solid #D6E787;
+	padding: 10px 5px;
+	text-align: center;
+	border-radius: 50px;
+	color: #D6E787;
+	font-family: Euphemia;
+	font-size: 18px;
+	margin-top: 20px;
+  cursor: pointer;
+}
+
+button:hover{
+    border: 2px solid #D6E787;
+}
+
+.buttonContact{
+  border: 1px solid #074D43;
+  color: #074D43;
+}
+
+.buttonContact:hover{
+  border: 2px solid #074D43;
+}
