@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useAppContext } from '@/internal/providers/AppProvider';
 
 export type UserType = {
@@ -7,18 +7,7 @@ export type UserType = {
 };
 
 function UserList() {
-  const { socket } = useAppContext();
-  const [users, setUsers] = useState<UserType[]>([]);
-
-  useEffect(() => {
-    socket.on('playerList', (users: UserType[]) => {
-      setUsers(users);
-    });
-
-    return () => {
-      socket.off('playerList');
-    };
-  }, []);
+  const { users } = useAppContext();
 
   const renderList = useMemo(() => {
     return users.map((user) => {
