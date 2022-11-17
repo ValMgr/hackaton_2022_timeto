@@ -2,6 +2,8 @@ import {MainContainer, PeopleContainer, PeopleCircle, PeopleName, OtherPeople} f
 
 function List() {
 
+  // str.substring(0, 1)
+
   return(
     <MainContainer>
       <PeopleContainer>

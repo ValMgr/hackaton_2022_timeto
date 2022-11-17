@@ -10,14 +10,11 @@ function Timer() {
   const timerFunction = useCallback(() => {
     if (timer > 0) {
       setTimer((timer) => timer - 1);
-      console.log(timer)
     } else {
       setTimer(0);
-      console.log('add');
     }
   }, [timer, setTimer])
 
-  console.log('timer', timer);
 
   if (timer <= 0) {
     setTimer(0);

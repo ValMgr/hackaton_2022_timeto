@@ -52,10 +52,6 @@ function QuestionContainer() {
       // @TODO: Send vote to server
     };
 
-    // console.log('time', timer)
-    // if (timer < 50) {
-    //   console.log('50');
-    // }
 
     return question.answers.map((answer, index) => (
     <Button 

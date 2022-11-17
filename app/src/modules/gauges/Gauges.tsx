@@ -13,9 +13,9 @@ function Gauges() {
 			<MainContainer>
 				<TitleContainerGauge>0 mois / 24</TitleContainerGauge>
 				<ContainerGauge>
-					<Gauge label="Social" value={score.environmental} limit={GAUGE_MAX} gaugeColor={"#C1B5F1"} />
+					<Gauge label="Env." value={score.environmental} limit={GAUGE_MAX} gaugeColor={"#C1B5F1"} />
 					<Gauge label="Eco" value={score.economy} limit={GAUGE_MAX} gaugeColor={"#DF6734"} />
-					<Gauge label="Env." value={score.social} limit={GAUGE_MAX} gaugeColor={"#D6E787"} />
+					<Gauge label="Social" value={score.social} limit={GAUGE_MAX} gaugeColor={"#D6E787"} />
 				</ContainerGauge>
 				<EnvelopValue>30 000 €</EnvelopValue>
 			</MainContainer>
