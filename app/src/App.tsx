@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import HomePage from './modules/homePage/HomePage';
-import KnowMore from './modules/knowMore/KnowMore';
+import HomePage from '@/modules/homePage/HomePage';
+import KnowMore from '@/modules/knowMore/KnowMore';
 
-import './App.css';
+import '@/App.css';
 
 function App() {
   return (
