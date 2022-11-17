@@ -1,6 +1,6 @@
 import {MainContainer, ContainerAll, TitleContainer, TitlePage, TitleGreen, Text, TitleSpan, TextTitle, CardContainer, Container} from "./components/styledComponents";
 
-function Know() {
+function KnowMore() {
 
   // str.substring(0, 1)
 
@@ -62,4 +62,4 @@ function Know() {
   )
 }
 
-export default Know;
+export default KnowMore;
