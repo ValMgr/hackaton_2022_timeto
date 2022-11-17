@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 
 function Timer() {
-  const [timer, setTimer] = useState<number>(5);
+  const [timer, setTimer] = useState<number>(60);
   const [interval, createInterval] = useState<NodeJS.Timer>();
 
   const timerFunction = useCallback(() => {
