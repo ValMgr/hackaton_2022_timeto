@@ -7,8 +7,10 @@ function KnowMore() {
   return(
     <MainContainer>
 			<TitleContainer>
-				<TitlePage>Time to </TitlePage><TitleSpan> [ know more ]</TitleSpan>
+				<TitlePage>Time to <TitleSpan>[ know more ]</TitleSpan></TitlePage>
+				<button>Revenir à l'accueil</button>
 			</TitleContainer>
+			
 				
 			<ContainerAll>
 				<Container>
@@ -28,6 +30,9 @@ function KnowMore() {
 				<Text>
 				Un débat ludique, riche et construit, avec des clés et conseils pour intégrer les enjeux sociaux, économiques et environnementaux à votre business. Nous vous donnons les clés pour pérenniser votre entreprise existante, et pour vous projeter dans vos futurs projets de manière responsable.
 				</Text>
+				<button className="buttonContact">
+					Contactez-nous
+				</button>
 				</Container>
 
 				<CardContainer>

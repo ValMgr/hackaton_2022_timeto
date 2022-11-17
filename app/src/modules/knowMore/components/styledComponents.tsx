@@ -49,6 +49,8 @@ export const TitleContainer = styled.div`
 	flex-direction: row;
 	align-items: center;
 	margin-bottom: 45px;
+	width: 98%;
+	justify-content: space-between;
 `;
 
 export const TitlePage = styled.h1`
@@ -56,6 +58,8 @@ export const TitlePage = styled.h1`
 	color: #F3EFDC;
 	font-family: EuphemiaBold;
 	margin-right: 15px;
+	display:flex;
+	flex-direction: row;
 	`
 	
 	export const TitleSpan = styled.span`
@@ -63,6 +67,7 @@ export const TitlePage = styled.h1`
 	font-family: EuphemiaBold;
 	color: #D6E787;
 	display: block;
+	margin-left: 10px;
 `
 
 export const TextTitle = styled.h2`
