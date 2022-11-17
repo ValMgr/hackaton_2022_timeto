@@ -7,7 +7,11 @@ import { createCountdown } from './utils/timer';
 
 const app = express();
 const server = new HttpServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+  },
+});
 
 const PORT = 3000;
 
