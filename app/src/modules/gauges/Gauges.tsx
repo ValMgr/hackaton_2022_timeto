@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useGameContext } from "@/core/providers/GameProvider";
 import { GAUGE_MAX } from '@/core/constants/gauges';
 import Gauge from '@/modules/gauges/components/Gauge';
-import { ContainerGauge, MainContainer, TitleContainerGauge, EnvelopValue } from './styledComponents';
+import { ContainerGauge, MainContainer, TitleContainerGauge, EnvelopValue } from '@/modules/gauges/styledComponents';
 
 function Gauges() {
 	const { score, updateScore } = useGameContext();

@@ -8,7 +8,6 @@ export const ContainerButton = styled.button<IButtonProps>`
   background-color: #F3EFDC;
   color: #074D43;
   border : 1px solid #074D43;
-  // margin: 10px;
   padding: 20px 24px;
   width: 100%;
   height: 145px;
@@ -29,6 +28,7 @@ export const ContainerButton = styled.button<IButtonProps>`
 export const ContainerQuestion = styled.div`
   background-color: #FEFCF2;
   border : 1px solid #074D43;
+  margin: 0 2rem;
   padding: 65px 85px;
   max-width: 700px;
   display: flex;
@@ -45,6 +45,7 @@ export const ContainerButtons = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 24px;
   grid-row-gap: 56px;
+  width: 100%;
 `;
 
 export const QuestionTitle = styled.div`

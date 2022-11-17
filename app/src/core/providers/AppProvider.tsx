@@ -1,7 +1,7 @@
 import { useContext, createContext, useState, useMemo, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 
-import type { UserType } from '@/modules/homePage/components/UserList';
+import type { UserType } from '@/modules/homePage/components/UsersList';
 
 export type AppContextType = {
   room: string;
@@ -46,9 +46,6 @@ const AppProvider = ({ children }: IProps) => {
     socket.on('playerList', (users: UserType[]) => {
       setUsers(users);
     });
-
-    // @TODO: Remove this
-    socket.emit('createRoom', 'R444', `Player ${Math.floor(Math.random() * 100)}`);
 
     return () => {
       socket.off('connection');
