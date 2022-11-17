@@ -1,9 +1,12 @@
 import { useContext, createContext, useState, useMemo, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 
+import type { UserType } from '@/modules/sessions/components/UserList';
+
 export type AppContextType = {
   room: string;
   name: string;
+  users: UserType[];
   setName: (name: string) => void;
   setRoom: (room: string) => void;
   socket: Socket;
@@ -13,6 +16,7 @@ export type AppContextType = {
 const AppContext = createContext<AppContextType>({
   room: '',
   name: '',
+  users: [],
   setName: () => {},
   setRoom: () => {},
   socket: io(),
@@ -28,6 +32,7 @@ const AppProvider = ({ children }: IProps) => {
   const [room, setRoom] = useState<string>('');
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [name, setName] = useState<string>('');
+  const [users, setUsers] = useState<UserType[]>([]);
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -36,6 +41,10 @@ const AppProvider = ({ children }: IProps) => {
 
     socket.on('disconnect', () => {
       setSessionId(null);
+    });
+
+    socket.on('playerList', (users: UserType[]) => {
+      setUsers(users);
     });
 
     return () => {
@@ -58,8 +67,9 @@ const AppProvider = ({ children }: IProps) => {
       sessionId,
       name,
       setName,
+      users,
     };
-  }, [room, setRoom, socket, sessionId, name, setName]);
+  }, [room, setRoom, socket, sessionId, name, setName, users]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
