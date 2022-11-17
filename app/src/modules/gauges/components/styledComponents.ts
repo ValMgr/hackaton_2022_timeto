@@ -29,8 +29,13 @@ export const GaugeLabel = styled.div`
 	font-size: 14px;
 	font-weight: 600;
 	color: #074D43;
-	transform: rotate(340deg);
 	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	img {
+		max-width: 30px;
+	}
 `
 
 export const MainContainer = styled.div`

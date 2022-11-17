@@ -806,7 +806,7 @@
         "gauges": {
           "social": 1,
           "environmental": 2,
-          "economy": 0
+          "economy": -2
         }
       },
       {
@@ -814,9 +814,9 @@
         "text": "PME",
         "price": 0,
         "gauges": {
-          "social": -1,
-          "environmental": -2,
-          "economy": 1
+          "social": -2,
+          "environmental": 1,
+          "economy": -1
         }
       },
       {
@@ -824,9 +824,9 @@
         "text": "Grande entreprise",
         "price": 0,
         "gauges": {
-          "social": 2,
+          "social": -2,
           "environmental": 1,
-          "economy": 0
+          "economy": 2
         }
       },
       {
@@ -834,9 +834,9 @@
         "text": "ETI",
         "price": 0,
         "gauges": {
-          "social": 2,
-          "environmental": 0,
-          "economy": -2
+          "social": 1,
+          "environmental": -1,
+          "economy": -1
         }
       }
     ]

@@ -31,4 +31,11 @@ export const TitleContainerGauge = styled.h2`
 	display: block;
 	font-weight: 600;
 	margin: 2rem 0 0.5rem 0;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 5px;
+	img {
+		max-width: 35px;
+	}
 `

@@ -80,4 +80,7 @@ export const TimerContainer = styled.div`
   span {
     width: 50px;
   }
+  img {
+    max-width: 50px;
+  }
 `;
