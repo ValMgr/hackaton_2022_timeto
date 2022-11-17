@@ -1,9 +1,13 @@
+import { useGameContext } from "@/core/providers/GameProvider";
 import { TitleResults, ResultsContainer, RangeProgress, Range, ScaleResults, SubTitleResults, ResultsCategories, ResultCategory, ResultContent } from "./styledComponents";
 import { useState, useMemo } from 'react'
 
 
 function Results() {
   const [category, setCategory] = useState('social');
+  const { results } = useGameContext();
+
+console.log(results)
 
   let randomNumber = Math.floor(Math.random() * (15 - 3 +1)) + 3;
 
@@ -50,22 +54,7 @@ function Results() {
         <div className="point">{randomPoint}</div>
       </div>
     );
-  }
-
-  
-  const renderAnswer: JSX.Element[] | null | JSX.Element = useMemo(() => {
-    if (category === 'social') {
-     return answersSocial;
-    } else if (category === 'economie'){
-      return answersEco;
-    } else if (category === 'environnement'){
-      return answersEnv
-    } else {
-      return null
     }
-  }, [category]);
-
-  
 
   return(
     <ResultsContainer>
@@ -88,7 +77,15 @@ function Results() {
         <ResultCategory onClick={() => setCategory('environnement')} category='environnement' actualCategory={category}>Environnement</ResultCategory>
       </ResultsCategories>
         <ResultContent>
-          {renderAnswer}
+          {results.map(result => (
+            <div key={result.id}>
+            <div className="question">
+              <div className="number">{result.id + 1}. Votre réponse : </div> 
+              <div className="text"> {result.text}</div>
+            </div>
+            <div className="point">{result.gauges.social}</div>
+          </div>
+          ))}
         </ResultContent>
     </ResultsContainer>
   )
