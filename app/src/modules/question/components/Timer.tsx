@@ -10,8 +10,6 @@ function Timer(): JSX.Element | null {
 
   useEffect(() => {
 
-    setTimeout(() => socket.emit('startTimer'), 5000);
-
     socket.on('setTimer', (time: number) => {
       setTime(time);
     });
