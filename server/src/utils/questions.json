@@ -1,0 +1,1030 @@
+[
+  {
+    "id": 1,
+    "title": "Télétravail",
+    "question": "Etes vous pour le télétravail ?",
+    "type": "Core",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Oui",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Non",
+        "price": -100,
+        "gauges": {
+          "social": -1,
+          "environmental": 1,
+          "economy": 2
+        }
+      },
+      {
+        "id": 3,
+        "text": "Quelques fois par mois",
+        "price": 200,
+        "gauges": {
+          "social": -1,
+          "environmental": 1,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Une fois par semaine minimum (imposé)",
+        "price": 200,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Recrutement",
+    "question": "Préférez-vous recruter ? ",
+    "type": "Core",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Homme",
+        "price": 0,
+        "gauges": {
+          "social": -1,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Femme",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Peut importe",
+        "price": 0,
+        "gauges": {
+          "social": -1,
+          "environmental": 1,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Alternant",
+    "question": "Si vous avez besoin de recruter, feriez-vous appel à un alternant ?",
+    "type": "Core",
+    "order": 5,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Oui absolument",
+        "price": 80,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Non, c'est une contrainte",
+        "price": -100,
+        "gauges": {
+          "social": -1,
+          "environmental": 1,
+          "economy": 2
+        }
+      },
+      {
+        "id": 3,
+        "text": "Oui, pour les avantages fiscaux",
+        "price": 15,
+        "gauges": {
+          "social": -1,
+          "environmental": 1,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Oui, j'adore apprendre et transmettre mon savoir",
+        "price": 100,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Absence",
+    "question": "Un de vos salariés s'absente régulièrement...",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Vous le réprimendez",
+        "price": -10,
+        "gauges": {
+          "social": -2,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Vous ne faites rien",
+        "price": -10,
+        "gauges": {
+          "social": -1,
+          "environmental": 0,
+          "economy": -1
+        }
+      },
+      {
+        "id": 3,
+        "text": "Vous prenez de ses nouvelles",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 0,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Cohésion",
+    "question": "Pour renforcer la cohésion de votre équipe...",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Vous achetez une Nintendo Switch",
+        "price": -50,
+        "gauges": {
+          "social": 1,
+          "environmental": -1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Vous organisez des sessions de sports",
+        "price": -10,
+        "gauges": {
+          "social": 1,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Vous demandez l'avis de vos collaborateurs",
+        "price": 0,
+        "gauges": {
+          "social": 2,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Vous créez une salle de détente",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 0,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Action RSE",
+    "question": "Un plan d'action RSE s'offre à votre entreprise, quelle bonne pratique priviligeriez-vous ?",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Faire appel à un fournisseur d'energies renouvelables.",
+        "price": 20,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Mettre en place un plan de déplacement pour vos salariés.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Réduire votre consommation de papier",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Etablir un plan de recyclage des déchets",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Bonnes pratiques RSE",
+    "question": "Quelles sont les bonnes pratiques RSE pour le bien-être des salariés ? ",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "S’assurer de respecter les règles de base de la santé et de l’hygiène au travail.",
+        "price": 0,
+        "gauges": {
+          "social": 2,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Respecter le droit du travail.",
+        "price": 0,
+        "gauges": {
+          "social": 2,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Optimiser l'éclairage de vos lieux de travail.",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Bien gérer la qualité de l'air.",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Economie Locale",
+    "question": "Afin de participer au développement économique local, vous faites appel aux fournisseurs locaux pour ?",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Pour l'énergie.",
+        "price": -80,
+        "gauges": {
+          "social": 2,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Pour les déchets (papiers).",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 2
+        }
+      },
+      {
+        "id": 3,
+        "text": "Pour la location de matériels.",
+        "price": -100,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Je ne fais pas appel à des fournisseurs locaux.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Réduction énergétique",
+    "question": "Pour réduire vos factures d'énergies, êtes vous prêt à...",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Imposer une journée de télétravail à vos équipes.",
+        "price": 100,
+        "gauges": {
+          "social": 1,
+          "environmental": 0,
+          "economy": 2
+        }
+      },
+      {
+        "id": 2,
+        "text": "Être plus strictes quant aux consommations offertes par l'entreprise (café..).",
+        "price": 0,
+        "gauges": {
+          "social": -1,
+          "environmental": 0,
+          "economy": 1
+        }
+      },
+      {
+        "id": 3,
+        "text": "Demander à vos équipes d'apporter leurs propores consommations et de mettre à disposition le matériel (machine à café, bouilloir, micro-ondes).",
+        "price": 0,
+        "gauges": {
+          "social": -2,
+          "environmental": 0,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Proposer 50% du temps de travail en télétravail.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Réduction consommation",
+    "question": "Pour réduire votre consommation d'eau, êtes vous prêt à ...",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Mettre en place des réducteurs de débit sur les robinets des sanitaires.",
+        "price": -100,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 2
+        }
+      },
+      {
+        "id": 2,
+        "text": "Installer des chasses d’eau à double débit avec un réservoir limité..",
+        "price": -80,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 2
+        }
+      },
+      {
+        "id": 3,
+        "text": "Utiliser du papier 100% recyclé et limiter les impressions.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Ouvrir le robinet en me lavant les mains.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": -2,
+          "economy": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Bonnes pratiques sociétales",
+    "question": "Quelles sont les bonnes pratiques sociétales, économiques et éthiques ?",
+    "type": "Core",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Établir des règles pour les achats responsables.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 2
+        }
+      },
+      {
+        "id": 2,
+        "text": "Participer au développement économique local en choisissant des partenaires locaux.",
+        "price": -10,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 2
+        }
+      },
+      {
+        "id": 3,
+        "text": "Favoriser les circuits courts.",
+        "price": -15,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Favoriser l’emploi des jeunes et des seniors.",
+        "price": 0,
+        "gauges": {
+          "social": 2,
+          "environmental": 0,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Consommation énergétique",
+    "question": "Que faites vous pour améliorer votre consommation énergetique ? ",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "J'éteins les lumières et débranches les appreils en veille.",
+        "price": 20,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 2
+        }
+      },
+      {
+        "id": 2,
+        "text": "Je trie les déchets de l'entreprise.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 1
+        }
+      },
+      {
+        "id": 3,
+        "text": "Je n'achète plus de café, chaque salarié prend son thermos.",
+        "price": 15,
+        "gauges": {
+          "social": -1,
+          "environmental": 2,
+          "economy": 1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Je diminue le chauffage.",
+        "price": 20,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Solutions Domotiques",
+    "question": "Une entreprise de domotique vous démarche et vous propose des solutions...",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Automatiser la machine à café",
+        "price": 30,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Installer un termostat",
+        "price": 15,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 1
+        }
+      },
+      {
+        "id": 3,
+        "text": "Éteindre les lumière et la dEventure automatiquement.",
+        "price": 15,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Pollution numérique",
+    "question": "Comment gérez-vous la pollution numérique ?",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je trie mes mails toutes les semaines",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Je gère les cookies des différnets sites internet.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Je contacte mes collaborateurs par téléphone ou via une messagerie instantatée pour réduire la pollution numérique de mon entreprise.",
+        "price": 15,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Je ne change rien à mes habitudes, je ne pense pas que je pollue énormément.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": -2,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Documents",
+    "question": "Comment gérez-vous vos documents ?",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je les imprime pour mieux les retrouver.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": -2,
+          "economy": -1
+        }
+      },
+      {
+        "id": 2,
+        "text": "J'utilise un cloud pour les retrouver et les stocker.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 1
+        }
+      },
+      {
+        "id": 3,
+        "text": "Je ne m'étais jamais posé la question. Quand j'ai besoin j'imprime.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": -2,
+          "economy": -1
+        }
+      },
+      {
+        "id": 4,
+        "text": "Je ne stock et imprime aucun document .",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Gestion des déchets",
+    "question": "Comment gérez-vous les déchets de votre entreprise ?",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Simple poubelle.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": -1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Bac de tri selon les déchets.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Partenariat avec une société de tri des déchets.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 2,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Sensibilisation",
+    "question": "Comment sensibilisez-vous vos équipes à la protection de l'environnement au travail et dans la vie privée ? ",
+    "type": "Event",
+    "order": 6,
+    "answers": [
+      {
+        "id": 1,
+        "text": "J'organise plusieurs ramassages de déchets avec des associations locales.",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Je n'ai pas enCore enclanché le pas de la vie privée.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Je propose uniquement un tri de déchets en entreprise.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 1,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Je sensibilise les équipes à la seconde main et au recyclage par des ateliers et séminaire quelques fois dans l'année et je fais attention aux achats de l'entreprise.",
+        "price": 0,
+        "gauges": {
+          "social": 2,
+          "environmental": 2,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Typologie d'entreprise",
+    "question": "Quelle est votre typologie d'entreprise ?",
+    "type": "Core",
+    "order": 1,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Petite entreprise",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "PME",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Grande entreprise",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "ETI",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Locaux",
+    "question": "Choisissez vos locaux",
+    "type": "Core",
+    "order": 2,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Petits locaux avec accès au télétravail pour les salariés.",
+        "price": 0,
+        "gauges": {
+          "social": 2,
+          "environmental": 1,
+          "economy": 1
+        }
+      },
+      {
+        "id": 2,
+        "text": "Grands locaux et 100% physique",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": -1
+        }
+      },
+      {
+        "id": 3,
+        "text": "Full remote",
+        "price": 0,
+        "gauges": {
+          "social": -1,
+          "environmental": 0,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Types de locaux",
+    "question": "Quels types de locaux ?",
+    "type": "Core",
+    "order": 3,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Achat bureau unique.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Location bureau unique.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Location espace de co-working",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Full remote",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Matériel de bureau",
+    "question": "Pour votre matériel bureautique, vous...",
+    "type": "Core",
+    "order": 4,
+    "answers": [
+      {
+        "id": 1,
+        "text": "Achetez le matériel",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "Louez le matériel.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "Achetez reconditionné.",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "Full remote",
+        "price": 0,
+        "gauges": {
+          "social": 1,
+          "environmental": 2,
+          "economy": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Nombre de salariés",
+    "question": "Nombre de salariés",
+    "type": "Core",
+    "order": 5,
+    "answers": [
+      {
+        "id": 1,
+        "text": "0-10 salarié(s)",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 2,
+        "text": "10-30 salariés",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 3,
+        "text": "30-50 salariés",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      },
+      {
+        "id": 4,
+        "text": "50 et +",
+        "price": 0,
+        "gauges": {
+          "social": 0,
+          "environmental": 0,
+          "economy": 0
+        }
+      }
+    ]
+  }
+]

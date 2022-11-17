@@ -1,35 +1,21 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react';
 
-import Button from "./components/Button";
-import Timer from "./components/Timer";
-import { QuestionTitle, QuestionText, ContainerButtons,ContainerQuestion } from "@/modules/questions/components/styledComponents";
-import type { Question } from "@/types/question";
-
-import { useGameContext } from "@/core/providers/GameProvider";
-
-import getQuestion from "./services/api";
+import Button from '@/modules/questions/components/Button';
+import Timer from '@/modules/questions/components/Timer';
+import {
+  QuestionTitle,
+  QuestionText,
+  ContainerButtons,
+  ContainerQuestion,
+} from '@/modules/questions/components/styledComponents';
+import { useGameContext } from '@/core/providers/GameProvider';
 
 function QuestionContainer() {
-
-  const {updateScore} = useGameContext();
-  
-  const [question, setQuestion] = useState<Question | null>(null);
+  const { question, updateScore } = useGameContext();
   const [selected, setSelected] = useState<number>(-1);
 
-
-  useEffect(() => {
-    if(!question){
-     (async () => {
-      setQuestion(await getQuestion('/src/json/question.json'));
-    })();
-  }
-  }, [question]);
-
-
-
-
   const renderQuestionText: JSX.Element | null = useMemo(() => {
-    if(!question) {
+    if (!question) {
       return null;
     }
 
@@ -38,43 +24,38 @@ function QuestionContainer() {
         <QuestionTitle>{question.title}</QuestionTitle>
         <QuestionText>{question.question}</QuestionText>
       </>
-    )
+    );
   }, [question]);
 
   const renderAnswers: JSX.Element[] | null = useMemo(() => {
-    if(!question) {
+    if (!question) {
       return null;
     }
 
-    const handleClick = (index: number, answer:Object) => {
+    const handleClick = (index: number, answer: Object) => {
       setSelected(index);
       updateScore(answer);
 
       // @TODO: Send vote to server
     };
 
-
     return question.answers.map((answer, index) => (
-    <Button 
-      key={`answer_${answer.id}`} 
-      label={answer.text} 
-      callback={() => handleClick(index, answer.gauges)}
-      selected={selected === index} />
+      <Button
+        key={`answer_${answer.id}`}
+        label={answer.text}
+        callback={() => handleClick(index, answer.gauges)}
+        selected={selected === index}
+      />
     ));
   }, [question, selected]);
 
-
-
-  return(
+  return (
     <ContainerQuestion>
-      <Timer  />
+      <Timer />
       {renderQuestionText}
-      <ContainerButtons>
-        {renderAnswers}
-      </ContainerButtons>
+      <ContainerButtons>{renderAnswers}</ContainerButtons>
     </ContainerQuestion>
-  )
-
+  );
 }
 
 export default QuestionContainer;
