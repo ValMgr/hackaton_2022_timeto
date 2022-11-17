@@ -1,7 +1,7 @@
 import { useContext, createContext, useState, useMemo, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 
-import type { UserType } from '@/modules/sessions/components/UserList';
+import type { UserType } from '@/modules/homePage/components/UserList';
 
 export type AppContextType = {
   room: string;
