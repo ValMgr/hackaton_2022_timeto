@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
 
 import { useAppContext } from '@/core/providers/AppProvider';
-import RoomSelector from './components/RoomSelector';
-import Questions from '../questions/Questions';
-import Gauges from '../gauges/Gauges';
+import GameProvider from '@/core/providers/GameProvider';
+import RoomSelector from '@/modules/homepage/components/RoomSelector';
+import Questions from '@/modules/questions/Questions';
+import Gauges from '@/modules/gauges/Gauges';
 import { MainContainer } from './styledComponents';
 
 export function HomePage() {
@@ -14,10 +15,12 @@ export function HomePage() {
   return (
     <>
       {isRoomCreated ? (
-        <MainContainer>
-          <Gauges />
-          <Questions />
-        </MainContainer>
+        <GameProvider>
+          <MainContainer>
+            <Gauges />
+            <Questions />
+          </MainContainer>
+        </GameProvider>
       ) : (
         <RoomSelector />
       )}

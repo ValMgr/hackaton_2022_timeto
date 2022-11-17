@@ -8,25 +8,14 @@ import {
   ContainerButtons,
   ContainerQuestion,
 } from '@/modules/questions/components/styledComponents';
-import type { Question } from '@/types/question';
 
+import type { Question } from '@/types/question';
 import { useGameContext } from '@/core/providers/GameProvider';
 
-import getQuestion from './services/api';
 
 function QuestionContainer() {
-  const { updateScore } = useGameContext();
-
-  const [question, setQuestion] = useState<Question | null>(null);
+  const { question, updateScore } = useGameContext();
   const [selected, setSelected] = useState<number>(-1);
-
-  useEffect(() => {
-    if (!question) {
-      (async () => {
-        setQuestion(await getQuestion('/src/json/question.json'));
-      })();
-    }
-  }, [question]);
 
   const renderQuestionText: JSX.Element | null = useMemo(() => {
     if (!question) {

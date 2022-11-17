@@ -1,7 +1,9 @@
 import express from 'express';
 import { Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
+import fs from 'fs';
 
+import type { Question } from 'types';
 import { findMostVotedOption } from './utils/vote';
 import { createCountdown } from './utils/timer';
 
@@ -15,6 +17,12 @@ const io = new Server(server, {
 
 const PORT = 3000;
 
+const rawJSON: string = fs.readFileSync(`${__dirname}/utils/questions.json`, 'utf-8');
+const flatQST: Question[] = JSON.parse(rawJSON);
+
+const questions: Question[] = flatQST.filter((q) => q.type === 'Core').sort((a, b) => a.order - b.order);
+// const events: Question[] = flatQST.filter((q) => q.type === 'Event').sort((a, b) => a.order - b.order);
+
 app.get('/', (req, res) => {
   res.json({ name: 'Time To - Hackaton 2022', version: process.env.npm_package_version });
   io.emit('message', 'Hello World');
@@ -26,8 +34,9 @@ io.on('connection', (socket) => {
   socket.on('createRoom', (roomName, username) => {
     console.log(`Room "${roomName}" joined by ${socket.id} with username "${username}"`);
     socket.join(roomName);
-    if (!store.has(roomName)) store.set(roomName, { users: [], vote: [], results: [], countdown: createCountdown(60) });
+    if (!store.has(roomName)) store.set(roomName, { users: [], vote: [], results: [], countdown: createCountdown(60), stage: 0 });
     store.get(roomName).users.push({ username, id: socket.id });
+    socket.emit('setQuestion', questions[store.get(roomName).stage]);
 
     io.to(roomName).emit('playerList', store.get(roomName).users);
 
