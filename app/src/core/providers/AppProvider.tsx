@@ -47,6 +47,9 @@ const AppProvider = ({ children }: IProps) => {
       setUsers(users);
     });
 
+    // @TODO: Remove this
+    socket.emit('createRoom', 'R444', `Player ${Math.floor(Math.random() * 100)}`);
+
     return () => {
       socket.off('connection');
       socket.off('disconnect');
