@@ -9,6 +9,7 @@ import {
   ContainerQuestion,
 } from '@/modules/questions/components/styledComponents';
 import { useGameContext } from '@/core/providers/GameProvider';
+import { Answer } from '@/types/question';
 
 function QuestionContainer() {
   const { question, updateScore } = useGameContext();
@@ -32,9 +33,9 @@ function QuestionContainer() {
       return null;
     }
 
-    const handleClick = (index: number, answer: Object) => {
+    const handleClick = (index: number, answer: Answer) => {
       setSelected(index);
-      updateScore(answer);
+      updateScore(answer.gauges);
 
       // @TODO: Send vote to server
     };
@@ -43,7 +44,7 @@ function QuestionContainer() {
       <Button
         key={`answer_${answer.id}`}
         label={answer.text}
-        callback={() => handleClick(index, answer.gauges)}
+        callback={() => handleClick(index, answer)}
         selected={selected === index}
       />
     ));

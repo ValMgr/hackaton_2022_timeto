@@ -59,6 +59,7 @@ const GameProvider = ({ children }: IProps) => {
         economy: getValue(score.economy, modifier.economy || 0),
       };
     });
+    console.log('updateScore', score);
   };
 
   const getValue = (v: number, m: number) => {

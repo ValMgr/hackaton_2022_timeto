@@ -9,41 +9,23 @@ import UsersList from '@/modules/usersList/UsersList';
 import { MainContainer } from '@/modules/homePage/styledComponents';
 
 export function HomePage() {
-  const { setRoom, room, setName, name } = useAppContext();
-	const [roomId, setRoomId] = useState<string>('');
+	const { room, name } = useAppContext();
 
-	const handleJoinRoom = useCallback(() => {
-		setRoom(roomId);
-  }, [setRoom, roomId]);
-  
-  const handleChangeRoom = (e: ChangeEvent<HTMLInputElement>) => {
-    setRoomId(e.target.value);
-  }
-
-  const handleChangeName = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  }
-
-	return (
-		<>
-		{name && room ? (
-			<MainContainer>
-				<GameProvider>
-					<Gauges />
-					<Questions />
-					<UsersList />
-				</GameProvider>
-			</MainContainer>
-			) : (
-			<RoomSelector
-				onNameChange={handleChangeName}
-				onRoomChange={handleChangeRoom}
-				onJoinRoom={handleJoinRoom}
-				nameValue={name}
-			/>
-		)}
-		</>
-	)
+  return (
+    <>
+      {name && room ? (
+        <GameProvider>
+          <MainContainer>
+            <Gauges />
+            <Questions />
+            <UsersList />
+          </MainContainer>
+        </GameProvider>
+      ) : (
+        <RoomSelector />
+      )}
+    </>
+  );
 }
 
 export default HomePage;

@@ -6,7 +6,7 @@ import Gauge from '@/modules/gauges/components/Gauge';
 import { ContainerGauge, MainContainer, TitleContainerGauge, EnvelopValue } from '@/modules/gauges/styledComponents';
 
 function Gauges() {
-	const { score, updateScore } = useGameContext();
+	const { score } = useGameContext();
 
 	return (
 		<>
