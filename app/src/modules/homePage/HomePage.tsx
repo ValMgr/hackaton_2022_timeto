@@ -23,7 +23,7 @@ export function HomePage() {
 
   return (
     <>
-      {isEndGame ? (
+      {!isEndGame ? (
         isRoomSelected ? (
           <MainContainer>
             <Gauges />
