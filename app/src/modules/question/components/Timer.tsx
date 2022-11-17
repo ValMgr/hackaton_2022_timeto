@@ -1,5 +1,5 @@
 import {TimerContainer} from "./styledComponents.js";
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 
 
@@ -7,14 +7,20 @@ function Timer() {
   const [timer, setTimer] = useState<number>(60);
   const [interval, createInterval] = useState<NodeJS.Timer>();
 
-  function timerFunction() {
+  const timerFunction = useCallback(() => {
     if (timer > 0) {
       setTimer((timer) => timer - 1);
     } else {
       setTimer(0);
-      console.log('addattributes');
     }
+  }, [timer, setTimer])
+
+
+  if (timer <= 0) {
+    setTimer(0);
+    clearInterval(interval)
   }
+
 
   useEffect(() => {
     if (!interval) {

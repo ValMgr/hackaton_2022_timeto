@@ -1,9 +1,8 @@
 import Gauges from './modules/gauges/Gauges'
 import { GameProvider } from './core/providers/GameProvider';
 import './App.css'
-
-
 import QuestionContainer from "./modules/question/components/QuestionContainer";
+import List from "./modules/peoples/components/List";
 
 function App() {
 
@@ -14,7 +13,7 @@ function App() {
         <QuestionContainer />
       </GameProvider>
 
-      <Gauges />
+      <List />
     </div>
   )
 }

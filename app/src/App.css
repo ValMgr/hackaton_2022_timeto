@@ -1,6 +1,9 @@
 body {
   font-family: Euphemia;
 }
+#root {
+  width: 100%;
+}
 
 @font-face {
   font-family: "Euphemia";
