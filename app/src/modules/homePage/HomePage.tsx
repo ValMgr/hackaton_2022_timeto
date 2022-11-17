@@ -1,4 +1,4 @@
-import { useCallback, useState, ChangeEvent } from 'react';
+import { useMemo } from 'react';
 
 import { useAppContext } from '@/core/providers/AppProvider';
 import GameProvider from '@/core/providers/GameProvider';
@@ -11,9 +11,11 @@ import { MainContainer } from '@/modules/homePage/styledComponents';
 export function HomePage() {
 	const { room, name } = useAppContext();
 
+	const isRoomSelected = useMemo(() => room && name, [room, name]);
+
   return (
     <>
-      {name && room ? (
+      {isRoomSelected ? (
         <GameProvider>
           <MainContainer>
             <Gauges />
