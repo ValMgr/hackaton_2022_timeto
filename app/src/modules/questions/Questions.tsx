@@ -1,17 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import Button from './components/Button';
-import Timer from './components/Timer';
+import Button from '@/modules/questions/components/Button';
+import Timer from '@/modules/questions/components/Timer';
 import {
   QuestionTitle,
   QuestionText,
   ContainerButtons,
   ContainerQuestion,
 } from '@/modules/questions/components/styledComponents';
-
-import type { Question } from '@/types/question';
 import { useGameContext } from '@/core/providers/GameProvider';
-
 
 function QuestionContainer() {
   const { question, updateScore } = useGameContext();
