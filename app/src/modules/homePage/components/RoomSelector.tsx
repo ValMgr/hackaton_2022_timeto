@@ -29,13 +29,7 @@ function RoomSelector() {
         <MainTitle>Time to [play]</MainTitle>
         <ContainerInputs>
           <InputElement type='text' name='name' placeholder="Nom d'utilisateur" value={username} onChange={handleChangeName} />
-          <InputElement
-            type='text'
-            name='room_id'
-            placeholder='N° de la salle'
-            value={roomId}
-            onChange={handleChangeRoomId}
-          />
+          <InputElement type='text' name='room_id' placeholder='N° de la salle' value={roomId} onChange={handleChangeRoomId} />
           <button onClick={handleJoinRoom}>Rejoindre</button>
         </ContainerInputs>
       </ContainerContent>
