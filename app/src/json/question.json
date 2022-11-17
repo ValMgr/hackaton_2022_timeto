@@ -12,7 +12,7 @@
       "gauges": {
         "social": -2,
         "environmental": 2,
-        "economy": 0
+        "economy": -1
       }
     },
     {
@@ -20,7 +20,7 @@
       "text": "Bac de tri selon les déchets",
       "price": -100,
       "gauges": {
-        "social": -2,
+        "social": 2,
         "environmental": -2,
         "economy": 2
       }

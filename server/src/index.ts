@@ -3,6 +3,7 @@ import { Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
 
 import { findMostVotedOption } from './utils/vote';
+import { createCountdown } from './utils/timer';
 
 const app = express();
 const server = new HttpServer(app);
@@ -16,14 +17,31 @@ app.get('/', (req, res) => {
 });
 
 const store = new Map();
+
 io.on('connection', (socket) => {
   socket.on('createRoom', (roomName, username) => {
     console.log(`Room "${roomName}" joined by ${socket.id} with username "${username}"`);
     socket.join(roomName);
-    if (!store.has(roomName)) store.set(roomName, { users: [], vote: [], results: [] });
+    if (!store.has(roomName)) store.set(roomName, { users: [], vote: [], results: [], countdown: createCountdown(60) });
     store.get(roomName).users.push({ username, id: socket.id });
 
     io.to(roomName).emit('playerList', store.get(roomName).users);
+
+    socket.on('startTimer', () => {
+      const { countdown } = store.get(roomName);
+      console.log(`Timer is running in room "${roomName}: ${countdown.isRunning()}"`);
+      if (!countdown.isRunning()) {
+        console.log('Timer started');
+        countdown.start();
+        const interval = setInterval(() => {
+          io.to(roomName).emit('setTimer', countdown.getTime());
+          if (countdown.isFinished()) {
+            clearInterval(interval);
+            io.to(roomName).emit('timer', 0);
+          }
+        }, 1000);
+      }
+    });
 
     socket.on('vote', (value) => {
       if (store.get(roomName).vote.find((v) => v.id === socket.id)) {
