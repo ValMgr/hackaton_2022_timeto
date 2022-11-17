@@ -1,5 +1,5 @@
 import { ChangeEvent, useCallback, useState } from 'react';
-import { useAppContext } from '@/internal/providers/AppProvider';
+import { useAppContext } from '@/core/providers/AppProvider';
 
 function RoomSelector() {
   const [roomId, setRoomId] = useState<string>('');

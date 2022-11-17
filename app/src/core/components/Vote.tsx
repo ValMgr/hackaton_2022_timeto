@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { useAppContext } from '@/internal/providers/AppProvider';
-import Choice from '@/internal/components/Choice';
+import { useAppContext } from '@/core/providers/AppProvider';
+import Choice from '@/core/components/Choice';
 
 const choices = ['Blue', 'Red', 'Green', 'Yellow'];
 

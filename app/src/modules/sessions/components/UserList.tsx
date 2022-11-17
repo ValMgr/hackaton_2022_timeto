@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useAppContext } from '@/internal/providers/AppProvider';
+import { useAppContext } from '@/core/providers/AppProvider';
 
 export type UserType = {
   id: string;
