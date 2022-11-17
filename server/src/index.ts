@@ -3,7 +3,7 @@ import { Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
 import fs from 'fs';
 
-import type { Question } from 'types';
+import type { Answer, Question } from 'types';
 import { findMostVotedOption } from './utils/vote';
 import { createCountdown } from './utils/timer';
 
@@ -37,6 +37,7 @@ io.on('connection', (socket) => {
     if (!store.has(roomName)) store.set(roomName, { users: [], vote: [], results: [], countdown: createCountdown(60), stage: 0 });
     store.get(roomName).users.push({ username, id: socket.id });
     socket.emit('setQuestion', questions[store.get(roomName).stage]);
+    socket.emit('startCountdown');
 
     io.to(roomName).emit('playerList', store.get(roomName).users);
 
@@ -56,20 +57,24 @@ io.on('connection', (socket) => {
       }
     });
 
-    socket.on('vote', (value) => {
+    socket.on('vote', (value: Answer) => {
       if (store.get(roomName).vote.find((v) => v.id === socket.id)) {
         store.get(roomName).vote.find((v) => v.id === socket.id).value = value;
       } else {
         store.get(roomName).vote.push({ id: socket.id, value });
       }
-      console.log(store.get(roomName).vote);
-      io.to(roomName).emit('voteList', store.get(roomName).vote.length);
+      console.log(`${store.get(roomName).vote.length} / ${store.get(roomName).users.length}`);
 
       if (store.get(roomName).vote.length === store.get(roomName).users.length) {
         const results = store.get(roomName).vote.map((v) => v.value);
         const mostVotedOption = findMostVotedOption(results);
         io.to(roomName).emit('result', mostVotedOption);
         store.get(roomName).results.push(mostVotedOption);
+        store.get(roomName).stage += 1;
+        store.get(roomName).vote = [];
+        if (store.get(roomName).stage < questions.length) {
+          io.to(roomName).emit('setQuestion', questions[store.get(roomName).stage]);
+        }
       }
     });
 

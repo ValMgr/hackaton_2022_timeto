@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 import Button from '@/modules/questions/components/Button';
 import Timer from '@/modules/questions/components/Timer';
@@ -9,10 +9,31 @@ import {
   ContainerQuestion,
 } from '@/modules/questions/components/styledComponents';
 import { useGameContext } from '@/core/providers/GameProvider';
+import { useAppContext } from '@/core/providers/AppProvider';
+import { Answer } from '@/types/question';
 
 function QuestionContainer() {
-  const { question, updateScore } = useGameContext();
+  const { question } = useGameContext();
   const [selected, setSelected] = useState<number>(-1);
+  const [answer, setAnswer] = useState<Answer | null>();
+  const { socket } = useAppContext();
+
+  useEffect(() => {
+    socket.on('result', () => {
+      setSelected(-1);
+      setAnswer(null);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (answer) {
+      socket.emit('vote', answer);
+    }
+
+    return () => {
+      socket.off('vote');
+    };
+  }, [answer]);
 
   const renderQuestionText: JSX.Element | null = useMemo(() => {
     if (!question) {
@@ -32,18 +53,16 @@ function QuestionContainer() {
       return null;
     }
 
-    const handleClick = (index: number, answer: Object) => {
+    const handleClick = (index: number, answer: Answer) => {
       setSelected(index);
-      updateScore(answer);
-
-      // @TODO: Send vote to server
+      setAnswer(answer);
     };
 
     return question.answers.map((answer, index) => (
       <Button
         key={`answer_${answer.id}`}
         label={answer.text}
-        callback={() => handleClick(index, answer.gauges)}
+        callback={() => handleClick(index, answer)}
         selected={selected === index}
       />
     ));
