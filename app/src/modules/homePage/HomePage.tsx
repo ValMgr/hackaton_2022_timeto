@@ -1,30 +1,40 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 
 import { useAppContext } from '@/core/providers/AppProvider';
-import GameProvider from '@/core/providers/GameProvider';
+
 import RoomSelector from '@/modules/homePage/components/RoomSelector';
 import Questions from '@/modules/questions/Questions';
 import Gauges from '@/modules/gauges/Gauges';
 import UsersList from '@/modules/usersList/UsersList';
 import { MainContainer } from '@/modules/homePage/styledComponents';
+import Results from '../results/components/Results';
 
 export function HomePage() {
-	const { room, name } = useAppContext();
+  const { room, name, socket } = useAppContext();
+  const [isEndGame, setIsEndGame] = useState<boolean>(false);
 
-	const isRoomSelected = useMemo(() => room && name, [room, name]);
+  useEffect(() => {
+    socket.on('endGame', () => {
+      setIsEndGame(true);
+    });
+  }, []);
+
+  const isRoomSelected = useMemo(() => room && name, [room, name]);
 
   return (
     <>
-      {isRoomSelected ? (
-        <GameProvider>
+      {isEndGame ? (
+        isRoomSelected ? (
           <MainContainer>
             <Gauges />
             <Questions />
             <UsersList />
           </MainContainer>
-        </GameProvider>
+        ) : (
+          <RoomSelector />
+        )
       ) : (
-        <RoomSelector />
+        <Results />
       )}
     </>
   );

@@ -1,6 +1,6 @@
 import { useState, useContext, createContext, useMemo, useEffect } from 'react';
 
-import type { Question } from '@/types/question';
+import type { Answer, Question } from '@/types/question';
 import { useAppContext } from '@/core/providers/AppProvider';
 import { GAUGE_MAX } from '@/core/constants/gauges';
 
@@ -15,12 +15,14 @@ export type GameContextType = {
   setUsers: (users: string[]) => void;
   question: Question | null;
   score: scoreType;
+  results: Answer[];
   updateScore: (modifier: { environmental?: number; social?: number; economy?: number }) => void;
 };
 
 const GameContext = createContext<GameContextType>({
   users: [],
   question: null,
+  results: [],
   setUsers: () => {},
   score: {
     environmental: 0,
@@ -40,14 +42,21 @@ const GameProvider = ({ children }: IProps) => {
   const [progression, setProgression] = useState<number>(0);
   const [score, setScore] = useState<scoreType>({ environmental: 0, social: 0, economy: 0 });
   const [question, setQuestion] = useState<Question | null>(null);
+  const [results, setResults] = useState<Answer[]>([]);
 
   useEffect(() => {
     socket.on('setQuestion', (question: Question) => {
       setQuestion(question);
     });
 
+    socket.on('result', (result: Answer) => {
+      setResults((prev) => [...prev, result]);
+      updateScore(result.gauges);
+    });
+
     return () => {
       socket.off('setQuestion');
+      socket.off('result');
     };
   }, []);
 
@@ -81,9 +90,10 @@ const GameProvider = ({ children }: IProps) => {
       setProgression,
       score,
       updateScore,
-      question
+      question,
+      results
     };
-  }, [users, setUsers, progression, setProgression, score, setScore, question]);
+  }, [users, setUsers, progression, setProgression, score, setScore, question, results]);
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
 };
