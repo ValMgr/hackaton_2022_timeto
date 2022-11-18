@@ -15,6 +15,7 @@ function UsersList() {
     <MainContainer>
       {users.map(user => (
       <PeopleContainer key={user.id}>
+        {/* @ts-ignore */}
         <PeopleCircle backgroundColor={colors[(Math.floor(Math.random() * colors.length))]}>{user.username[0].toUpperCase()}</PeopleCircle>
         <PeopleName>{user.username}</PeopleName>
       </PeopleContainer>
