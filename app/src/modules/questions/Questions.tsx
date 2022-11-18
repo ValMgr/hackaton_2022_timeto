@@ -22,7 +22,15 @@ function QuestionContainer() {
     socket.on('result', () => {
       setSelected(-1);
       setAnswer(null);
+      socket.emit('startTimer');
     });
+
+    socket.emit('startTimer');
+
+    return () => {
+      socket.off('result');
+    }
+
   }, []);
 
   useEffect(() => {

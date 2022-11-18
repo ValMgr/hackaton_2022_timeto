@@ -15,7 +15,7 @@ const io = new Server(server, {
   },
 });
 
-const PORT = 3000;
+const PORT = 3001;
 
 const rawJSON: string = fs.readFileSync(`${__dirname}/utils/questions.json`, 'utf-8');
 const flatQST: Question[] = JSON.parse(rawJSON);
@@ -37,20 +37,19 @@ io.on('connection', (socket) => {
     if (!store.has(roomName)) store.set(roomName, { users: [], vote: [], results: [], countdown: createCountdown(60), stage: 0 });
     store.get(roomName).users.push({ username, id: socket.id });
     socket.emit('setQuestion', questions[store.get(roomName).stage]);
-    socket.emit('startCountdown');
 
     io.to(roomName).emit('playerList', store.get(roomName).users);
 
     socket.on('startTimer', () => {
       const { countdown } = store.get(roomName);
-      console.log(`Timer is running in room "${roomName}: ${countdown.isRunning()}"`);
       if (!countdown.isRunning()) {
-        console.log('Timer started');
         countdown.start();
         const interval = setInterval(() => {
           io.to(roomName).emit('setTimer', countdown.getTime());
           if (countdown.isFinished()) {
             clearInterval(interval);
+            countdown.stop();
+            countdown.reset();
             io.to(roomName).emit('timer', 0);
           }
         }, 1000);
@@ -73,6 +72,9 @@ io.on('connection', (socket) => {
         store.get(roomName).stage += 1;
         store.get(roomName).vote = [];
         if (store.get(roomName).stage < questions.length) {
+          store.get(roomName).countdown.stop();
+          store.get(roomName).countdown.reset();
+          io.to(roomName).emit('timer', 60);
           io.to(roomName).emit('setQuestion', questions[store.get(roomName).stage]);
         }
 
