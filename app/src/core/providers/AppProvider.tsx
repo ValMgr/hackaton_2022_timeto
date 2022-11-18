@@ -1,7 +1,9 @@
 import { useContext, createContext, useState, useMemo, useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 
-import type { UserType } from '@/modules/homePage/components/UsersList';
+import type { UserType } from '@/modules/usersList/UsersList';
+
+const SERVER_URL = "https://hackaton.valentin-magry.fr/api";
 
 export type AppContextType = {
   room: string;
@@ -28,7 +30,7 @@ interface IProps {
 }
 
 const AppProvider = ({ children }: IProps) => {
-  const socket = useMemo(() => io('http://localhost:3000'), []);
+  const socket = useMemo(() => io(SERVER_URL), []);
   const [room, setRoom] = useState<string>('');
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [name, setName] = useState<string>('');

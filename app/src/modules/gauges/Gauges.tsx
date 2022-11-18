@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-
-import { useGameContext } from "@/core/providers/GameProvider";
+import { useGameContext } from '@/core/providers/GameProvider';
 import { GAUGE_MAX } from '@/core/constants/gauges';
 import Gauge from '@/modules/gauges/components/Gauge';
 import { ContainerGauge, MainContainer, TitleContainerGauge, EnvelopValue } from '@/modules/gauges/styledComponents';
@@ -11,7 +9,7 @@ import social from "../../assets/SocialTime.png";
 import pig from "../../assets/CochonTime.png";
 
 function Gauges() {
-	const { score } = useGameContext();
+  const { score } = useGameContext();
 
 	return (
 		<>

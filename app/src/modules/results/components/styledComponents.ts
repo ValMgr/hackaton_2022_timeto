@@ -92,6 +92,8 @@ export const ResultCategory = styled.div<ITitleProps>`
         color: #FEFCF2;
         background-color: #C1B5F1;
       `}
+
+    return null;
   }}
   `;
   
