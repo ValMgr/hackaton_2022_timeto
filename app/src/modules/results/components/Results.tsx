@@ -14,7 +14,7 @@ function Results() {
     answersSocial.push(
       <div>
         <div className="question">
-          <div className="number">{i}. Question Sociale : </div> 
+          <div className="number">{i}. Social : </div> 
           <div className="text"> Etes vous pour le télétravail ?</div>
         </div>
         <div className="point">{randomPoint}</div>
@@ -29,7 +29,7 @@ function Results() {
     answersEco.push(
       <div>
         <div className="question">
-          <div className="number">{i}. Question Economique : </div> 
+          <div className="number">{i}. Economie : </div> 
           <div className="text"> Pour réduire vos factures d'énergies, êtes vous prêt à...</div>
         </div>
         <div className="point">{randomPoint}</div>
@@ -44,7 +44,7 @@ function Results() {
     answersEnv.push(
       <div>
         <div className="question">
-          <div className="number">{i}. Question Environnement : </div> 
+          <div className="number">{i}. Environnement : </div> 
           <div className="text"> Comment gérez-vous la pollution numérique ?</div>
         </div>
         <div className="point">{randomPoint}</div>

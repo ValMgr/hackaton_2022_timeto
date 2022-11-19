@@ -36,7 +36,13 @@ export const ContainerQuestion = styled.div`
   align-items: flex-start;
   border-radius: 10px;
   position: relative;
-  width: 50%
+  width: 50%;
+  @media screen and (max-width: 960px) {
+		margin: 0;
+    width: auto;
+    padding: 50px;
+    padding-top: 75px;
+	}
 `;
 
 export const ContainerButtons = styled.div`
@@ -46,6 +52,9 @@ export const ContainerButtons = styled.div`
   grid-column-gap: 24px;
   grid-row-gap: 56px;
   width: 100%;
+  @media screen and (max-width: 960px) {
+    grid-template-columns: repeat(1, 1fr);
+	}
 `;
 
 export const QuestionTitle = styled.div`

@@ -8,4 +8,7 @@ export const MainContainer = styled.div`
 	justify-content: space-between;
 	padding: 2rem;
 	box-sizing: border-box;
+	@media screen and (max-width: 960px) {
+		flex-direction: column;
+	}
 `;

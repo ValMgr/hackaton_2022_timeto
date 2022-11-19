@@ -10,7 +10,13 @@ export const ContainerAll = styled.div`
   align-items: flex-start;
   border-radius: 10px;
   position: relative;
-  width: 90%
+  width: 90%;
+	@media screen and (max-width: 960px) {
+		flex-direction: column;
+		width: auto;
+		gap: 20px;
+		padding: 55px 35px;
+	}
 `;
 
 export const Container = styled.div`
@@ -19,6 +25,11 @@ export const Container = styled.div`
 	height: auto;
 	padding-right: 80px;
 	line-height: 1.6;
+	@media screen and (max-width: 960px) {
+		width: 100%;
+		margin: 0;
+		padding-right: 0;
+	}
 `
 
 export const CardContainer = styled.div`
@@ -27,6 +38,10 @@ export const CardContainer = styled.div`
 	height: auto;
 	padding: 10px 35px;
 	border-radius: 10px;
+	@media screen and (max-width: 960px) {
+		width: auto;
+		padding: 10px 25px;
+	}
 `
 
 
@@ -39,7 +54,10 @@ export const MainContainer = styled.div`
 	max-width: 100%;
 	background-image: url(${img});
 	background-repeat-x: no-repeat;
-	height: auto
+	height: auto;
+	@media screen and (max-width: 960px) {
+		padding: 65px 35px;
+	}
 `;
 
 export const TitleContainer = styled.div`
@@ -60,6 +78,9 @@ export const TitlePage = styled.h1`
 	margin-right: 15px;
 	display:flex;
 	flex-direction: row;
+	@media screen and (max-width: 960px) {
+		flex-direction: column;
+	}
 	`
 	
 	export const TitleSpan = styled.span`

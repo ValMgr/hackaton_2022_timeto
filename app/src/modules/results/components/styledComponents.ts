@@ -85,6 +85,11 @@ export const ResultCategory = styled.div<ITitleProps>`
   font-size: 20px;
   font-family: EuphemiaBold;
   width: 33%;
+  @media screen and (max-width: 960px) {
+		font-size: 16px;
+    padding-left: 12px;
+    padding-right: 12px;
+	}
 
   ${prop => {
     if(prop.category == prop.actualCategory) {
@@ -106,6 +111,9 @@ export const ResultCategory = styled.div<ITitleProps>`
   flex-direction: column;
   gap: 20px;
   max-height: 260px;
+  @media screen and (max-width: 960px) {
+		padding: 35px 10px;
+	}
   div {
     display: flex;
     flex-direction: row;
@@ -114,14 +122,29 @@ export const ResultCategory = styled.div<ITitleProps>`
     .question {
       color: #074D43;
       font-size: 20px;
+      gap: 15px;
       .number {
         font-family: EuphemiaBold;
+        @media screen and (max-width: 960px) {
+          font-size: 14px;
+          max-width: 135px;
+        }
+      }
+      .text {
+        @media screen and (max-width: 960px) {
+          max-width: 115px;
+        }
+      }
+      @media screen and (max-width: 960px) {
+        font-size: 12px;
       }
     }
     .point {
       font-family: EuphemiaBold;
       color: #074D43;
-
+      @media screen and (max-width: 960px) {
+        font-size: 14px;
+      }
     }
   }
 `;

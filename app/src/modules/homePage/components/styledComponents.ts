@@ -42,6 +42,12 @@ export const ContainerInputs = styled.div`
 	flex-direction: column;
 	background-color: #FEFCF2;
 	border-radius: 10px;
+	align-items: center;
+	button {
+		background-color: #C1B5F1;
+		color: #000;
+		border: 1px solid #000;
+	}
 `
 
 export const InputElement = styled.input`

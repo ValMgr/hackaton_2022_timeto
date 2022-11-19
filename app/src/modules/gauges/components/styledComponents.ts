@@ -13,7 +13,6 @@ export const ContainerLevel = styled.div`
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
-	height: 100%
 `
 
 export const Level = styled.div<ILevelProps>`
